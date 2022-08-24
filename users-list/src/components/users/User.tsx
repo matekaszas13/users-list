@@ -12,10 +12,8 @@ const User: React.FC<UserProps> = ({
   created_at,
 }: UserProps) => {
   return (
-    <div>
-      <span>{id}</span>
-      <span>{first_name}</span>
-      <span>{last_name}</span>
+    <div className="m-4 p-3 border-solid border-2 border-sky-500 rounded-md">
+      <h1>{first_name} {last_name}</h1>
       <span>{created_at}</span>
     </div>
   );
