@@ -1,9 +1,19 @@
-import React from 'react'
+import { useEffect, useState } from "react";
+import { datahandler } from "../../apis/datahandler";
 
 const Users = () => {
-  return (
-    <div>Users</div>
-  )
-}
+  const [users, setUsers] = useState([]);
 
-export default Users
+  useEffect(() => {
+    const fetchUsers = async () => {
+      return await datahandler.getUsers();
+    };
+    fetchUsers().then((data) => {
+      setUsers(data);
+    });
+  });
+
+  return <div>Users</div>;
+};
+
+export default Users;
