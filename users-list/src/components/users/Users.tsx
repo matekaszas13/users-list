@@ -29,7 +29,8 @@ const Users = () => {
   }, [users]);
 
   return (
-    <div>
+    <div className="max-w-[40%] m-auto">
+        <div className=" flex flex-row flex-wrap">
       {users.map((user) => (
         <User
           id={user.id}
@@ -40,6 +41,8 @@ const Users = () => {
         />
       ))}
     </div>
+    </div>
+    
   );
 };
 
