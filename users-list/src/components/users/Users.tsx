@@ -30,7 +30,15 @@ const Users = () => {
 
   return (
     <div>
-      
+      {users.map((user) => (
+        <User
+          id={user.id}
+          key={user.id}
+          last_name={user.last_name}
+          first_name={user.first_name}
+          created_at={user.created_at}
+        />
+      ))}
     </div>
   );
 };
