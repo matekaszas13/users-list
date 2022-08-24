@@ -1,8 +1,19 @@
 import { useEffect, useState } from "react";
 import { datahandler } from "../../apis/datahandler";
+import User from "./User";
 
 const Users = () => {
-  const [users, setUsers] = useState([]);
+  type User = {
+    id: number;
+    last_name: string;
+    first_name: string;
+    status: string;
+    created_at: string;
+    updated_at: string;
+    url: string;
+  };
+
+  const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -11,9 +22,17 @@ const Users = () => {
     fetchUsers().then((data) => {
       setUsers(data);
     });
-  });
+  }, []);
 
-  return <div>Users</div>;
+  useEffect(() => {
+    console.log(users);
+  }, [users]);
+
+  return (
+    <div>
+      
+    </div>
+  );
 };
 
 export default Users;
