@@ -1,6 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { datahandler } from "../../apis/datahandler";
 
 const NewUser = () => {
+
+    const navigate = useNavigate();
 
     type newUser = {
         first_name:string;
@@ -15,13 +18,14 @@ const NewUser = () => {
             "status":"active"
         }
         await datahandler.createNewUser(newUser);
+        navigate("../", {replace: true});
     }
 
   return (
     <div>
       <form action="" onSubmit={(event) => createNewUser(event)}>
-        <input type="text" placeholder="first name" name="first_name" />
-        <input type="text" placeholder="last name" name="last_name" />
+        <input required={true} type="text" placeholder="first name" name="first_name" />
+        <input required={true} type="text" placeholder="last name" name="last_name" />
         <button type="submit">Add new user</button>
       </form>
     </div>
