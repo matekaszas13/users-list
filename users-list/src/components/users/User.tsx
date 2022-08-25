@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { datahandler } from "../../apis/datahandler";
 
 interface UserProps {
   id: number;
@@ -16,6 +17,9 @@ const User: React.FC<UserProps> = ({
   status
 }: UserProps) => {
   const navigate = useNavigate();
+
+
+
   return (
     <div className="m-4 p-3 border-solid border-2 border-sky-500 rounded-md">
       {status === "locked" ? <h1><s>{first_name} {last_name}</s></h1> :<h1>{first_name} {last_name}</h1>}
