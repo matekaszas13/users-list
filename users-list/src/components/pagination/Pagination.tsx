@@ -38,10 +38,6 @@ const Pagination: React.FC<paginationProps> = ({ users }: paginationProps) => {
     setCurrentPage((currPage) => currPage - 1);
   }
 
-  useEffect(() => {
-    console.log(currentUsers);
-  }, [users]);
-
   return (
     <div>
       <div className=" flex flex-row flex-wrap">
@@ -55,10 +51,19 @@ const Pagination: React.FC<paginationProps> = ({ users }: paginationProps) => {
           />
         ))}
       </div>
-      <button className="pr-2" disabled={currentPage === 1 ? true : false} onClick={() => handlePrev()}>
+      <button
+        className="pr-2"
+        disabled={currentPage === 1 ? true : false}
+        onClick={() => handlePrev()}
+      >
         prev
       </button>
-      <button disabled={currentPage === maxNumberOfPages ? true : false} onClick={() => handleNext()}>next</button>
+      <button
+        disabled={currentPage === maxNumberOfPages ? true : false}
+        onClick={() => handleNext()}
+      >
+        next
+      </button>
     </div>
   );
 };
