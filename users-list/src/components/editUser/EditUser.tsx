@@ -44,10 +44,10 @@ export const EditUser = () => {
   }
 
   return (
-    <div className="flex justify-center border-4 border-blue-500 rounded w-fit m-auto p-5">
+    <div className="flex m-3 md:justify-center border-4 border-blue-500 rounded md:w-fit md:m-auto p-5">
       <form action="" onSubmit={(event) => updateUser(event)}>
       <h1 className="flex justify-center text-blue-800 text-[1.6rem]">Update User</h1>
-        <div className="flex flex-row">
+        <div className="flex md:flex-row flex-col">
           <div className="flex flex-col">
             <label className="text-blue-800" htmlFor="FirstName">First Name</label>
             <input
