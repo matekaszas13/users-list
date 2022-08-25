@@ -27,7 +27,7 @@ const User: React.FC<UserProps> = ({
   }
 
   return (
-    <div className="m-4 p-3 border-solid border-2 border-sky-500 rounded-md">
+    <div className="m-4 p-3 border-solid border-2 border-sky-500 rounded-md w-96 h-32">
       {status === "locked" ? (
         <h1>
           <s>
