@@ -26,7 +26,7 @@ const Users = () => {
   }, [users]);
 
   return (
-    <div className="max-w-[45%] m-auto">
+    <div className="max-w-[65%] m-auto ">
         {users && <Pagination users={users}/>}
     </div>
     
