@@ -9,6 +9,10 @@ type userUpdateDetails = {
   last_name: string;
 };
 
+type userStatusUpdate = {
+  status: string;
+};
+
 export const datahandler = {
   async getUsers() {
     const users = await fetch(
@@ -45,7 +49,7 @@ export const datahandler = {
   },
   async updateUserByItsId(id: string, userUpdateDetails: userUpdateDetails) {
     const result = await fetch(
-        `https://assessment-users-backend.herokuapp.com/users/${id}`,
+      `https://assessment-users-backend.herokuapp.com/users/${id}`,
       {
         method: "PUT",
         headers: {
@@ -53,6 +57,18 @@ export const datahandler = {
         },
         body: JSON.stringify(userUpdateDetails),
       }
-    )
+    );
+  },
+  async updateUserStatusByItsId(
+    id: number,
+    userStatusUpdateDetail: userStatusUpdate
+  ) {
+    await fetch(`https://assessment-users-backend.herokuapp.com/users/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userStatusUpdateDetail),
+    });
   },
 };
