@@ -48,7 +48,12 @@ const User: React.FC<UserProps> = ({
           <span>{created_at}</span>
         </div>
         <div className="flex justify-center flex-row ">
-          <button className="pr-8" onClick={() => navigate(`/edit/${id}`)}>Edit</button>
+          <button
+            className="mr-8 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded"
+            onClick={() => navigate(`/edit/${id}`)}
+          >
+            Edit
+          </button>
           <input
             type="checkbox"
             checked={status === "locked" ? true : false}
