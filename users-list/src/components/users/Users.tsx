@@ -25,10 +25,6 @@ const Users = () => {
     });
   }, []);
 
-  useEffect(() => {
-    console.log(users);
-  }, [users]);
-
   return (
     <div className="max-w-[45%] m-auto">
         {users && <Pagination users={users}/>}
