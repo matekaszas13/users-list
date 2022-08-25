@@ -48,6 +48,7 @@ const Pagination: React.FC<paginationProps> = ({ users }: paginationProps) => {
             last_name={user.last_name}
             first_name={user.first_name}
             created_at={user.created_at}
+            status={user.status}
           />
         ))}
       </div>
