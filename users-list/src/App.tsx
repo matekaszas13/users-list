@@ -6,7 +6,6 @@ import Users from "./components/users/Users";
 function App() {
   return <div>
     <Navigation/>
-    <Users/>
     <Outlet/>
   </div>;
 }

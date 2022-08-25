@@ -5,6 +5,7 @@ const Navigation = () => {
     <nav>
         <div>
             <Link to={"/"}>Home</Link>
+            <Link to={"/new"}> Add new User</Link>
         </div>
     </nav>
   )
