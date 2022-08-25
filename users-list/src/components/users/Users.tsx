@@ -23,7 +23,7 @@ const Users = () => {
     fetchUsers().then((data) => {
       setUsers(data);
     });
-  }, []);
+  }, [users]);
 
   return (
     <div className="max-w-[45%] m-auto">
