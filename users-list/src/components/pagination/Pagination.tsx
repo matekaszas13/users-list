@@ -52,7 +52,7 @@ const Pagination: React.FC<paginationProps> = ({ users }: paginationProps) => {
           />
         ))}
       </div>
-      <div>
+      <div className="flex justify-between">
       <button
         className="pr-2"
         disabled={currentPage === 1 ? true : false}
