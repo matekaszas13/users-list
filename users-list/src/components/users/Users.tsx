@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { datahandler } from "../../apis/datahandler";
+import Pagination from "../pagination/Pagination";
 import User from "./User";
 
 const Users = () => {
@@ -29,18 +30,8 @@ const Users = () => {
   }, [users]);
 
   return (
-    <div className="max-w-[40%] m-auto">
-        <div className=" flex flex-row flex-wrap">
-      {users.map((user) => (
-        <User
-          id={user.id}
-          key={user.id}
-          last_name={user.last_name}
-          first_name={user.first_name}
-          created_at={user.created_at}
-        />
-      ))}
-    </div>
+    <div className="max-w-[45%] m-auto">
+        {users && <Pagination users={users}/>}
     </div>
     
   );
