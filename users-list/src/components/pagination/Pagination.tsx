@@ -40,7 +40,7 @@ const Pagination: React.FC<paginationProps> = ({ users }: paginationProps) => {
 
   return (
     <div>
-      <div className=" flex flex-row flex-wrap">
+      <div className=" flex flex-row flex-wrap justify-center">
         {currentUsers?.map((user) => (
           <User
             id={user.id}
@@ -52,6 +52,7 @@ const Pagination: React.FC<paginationProps> = ({ users }: paginationProps) => {
           />
         ))}
       </div>
+      <div>
       <button
         className="pr-2"
         disabled={currentPage === 1 ? true : false}
@@ -65,6 +66,7 @@ const Pagination: React.FC<paginationProps> = ({ users }: paginationProps) => {
       >
         next
       </button>
+      </div>
     </div>
   );
 };
