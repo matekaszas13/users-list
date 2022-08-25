@@ -60,7 +60,7 @@ export const datahandler = {
     );
   },
   async updateUserStatusByItsId(
-    id: string,
+    id: number,
     userStatusUpdateDetail: userStatusUpdate
   ) {
     await fetch(`https://assessment-users-backend.herokuapp.com/users/${id}`, {
