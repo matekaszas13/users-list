@@ -1,10 +1,16 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import App from "../App";
+import NewUser from "../components/newUser/NewUser";
+import Users from "../components/users/Users";
 
 const Router = () => {
   return (
     <Routes>
-      <Route path="/" element={<App />}></Route>
+      <Route path="/" element={<App />}>
+      <Route index element={<Users />} />
+        <Route path="/new" element={<NewUser/>}/>
+      </Route>
+
     </Routes>
   );
 };
