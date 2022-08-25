@@ -22,21 +22,32 @@ const NewUser = () => {
   }
 
   return (
-    <div>
+    <div className="flex justify-center border-4 border-blue-500 rounded w-fit m-auto p-5">
       <form action="" onSubmit={(event) => createNewUser(event)}>
-        <input
-          required={true}
-          type="text"
-          placeholder="first name"
-          name="first_name"
-        />
-        <input
-          required={true}
-          type="text"
-          placeholder="last name"
-          name="last_name"
-        />
-        <button type="submit">Add new user</button>
+        <h1 className="flex justify-center text-blue-800">Create New User</h1>
+        <div className="flex flex-row m-4 ">
+          <input
+            className="p-3 mr-4 border border-blue-500 rounded"
+            required={true}
+            type="text"
+            placeholder="first name"
+            name="first_name"
+          />
+          <input
+            className="p-3  border border-blue-500 rounded"
+            required={true}
+            type="text"
+            placeholder="last name"
+            name="last_name"
+          />
+        </div>
+
+        <button
+          className="ml-4 mr-8 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded"
+          type="submit"
+        >
+          Add new user
+        </button>
       </form>
     </div>
   );
