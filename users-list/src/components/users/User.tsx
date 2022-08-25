@@ -22,6 +22,7 @@ const User: React.FC<UserProps> = ({
       <h1>{status}</h1>
       <span>{created_at}</span>
       <button onClick={() => navigate(`/edit/${id}`)}>Edit</button>
+      <input type="checkbox" />
     </div>
   );
 };
