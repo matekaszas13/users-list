@@ -24,7 +24,7 @@ const NewUser = () => {
   return (
     <div className="flex justify-center border-4 border-blue-500 rounded w-fit m-auto p-5">
       <form action="" onSubmit={(event) => createNewUser(event)}>
-        <h1 className="flex justify-center text-blue-800">Create New User</h1>
+        <h1 className="flex justify-center text-blue-800  text-[1.6rem]">Create New User</h1>
         <div className="flex flex-row m-4 ">
           <input
             className="p-3 mr-4 border border-blue-500 rounded"
