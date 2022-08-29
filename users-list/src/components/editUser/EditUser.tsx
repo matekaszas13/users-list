@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { datahandler } from "../../apis/datahandler";
 import { IUser } from "../../globals/models";
+import ErrorMessage from "../ErrorMessage";
 
 export const EditUser = () => {
   const navigate = useNavigate();
+
+  const [errorMessageIsHidden, setErrorMessageIsHidden] = useState<boolean>(true);
 
   type userUpdateDetails = {
     first_name: string;
@@ -17,7 +20,17 @@ export const EditUser = () => {
 
   useEffect(() => {
     const fetchUserById = async () => {
-      return await datahandler.getUserById(params.id as string);
+      try {
+        return await datahandler.getUserById(params.id as string);
+      } catch (error) {
+        setErrorMessageIsHidden(false)
+        setTimeout(() => {
+          setErrorMessageIsHidden(true)
+          navigate("/")
+          
+        }, 5000)
+      }
+      
     };
     fetchUserById().then((data) => {
       setUser(data);
@@ -36,6 +49,7 @@ export const EditUser = () => {
 
   return (
     <div className="flex m-2 md:justify-center border-4 border-blue-500 rounded md:w-fit md:m-auto p-5">
+      <ErrorMessage isHidden={errorMessageIsHidden} message="There is no user with the given id" />
       <form action="" onSubmit={(event) => updateUser(event)}>
         <h1 className="flex justify-center text-blue-800 text-[1.6rem]">
           Update User
