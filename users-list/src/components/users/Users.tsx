@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { datahandler } from "../../apis/datahandler";
 import { IUser } from "../../globals/models";
 import Pagination from "../pagination/Pagination";
-import User from "./User";
 
 const Users = () => {
 

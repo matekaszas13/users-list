@@ -1,4 +1,3 @@
-import { stringify } from "querystring";
 import React, { useEffect, useState } from "react";
 import { IUser } from "../../globals/models";
 import User from "../users/User";
@@ -27,7 +26,7 @@ const Pagination: React.FC<PaginationProps> = ({ users }: PaginationProps) => {
     const end = begin + userPerPage;
     const actualUsers = users.slice(begin, end);
     setCurrentUsers(actualUsers);
-  }, [currentPage]);
+  }, [currentPage, users]);
 
   function handleNext() {
     setCurrentPage((currPage) => currPage + 1);
