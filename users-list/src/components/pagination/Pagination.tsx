@@ -67,13 +67,13 @@ const Pagination: React.FC<PaginationProps> = ({ users }: PaginationProps) => {
   useEffect(() => setPageNumbers(generatePageNumbers(maxNumberOfPages)), []);
 
   return (
-    <div>
+    <div className="">
       <div className="flex flex-row flex-wrap justify-center">
         {currentUsers?.map((user) => (
           <User key={user.id} user={user} />
         ))}
       </div>
-      <div className="flex justify-between mb-2">
+      <div className="flex flex-col md:flex-row justify-center mb-2 ">
         <button
           className="disabled:opacity-50 pr-2 mt-2 mr-8 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded"
           disabled={currentPage === 1}
@@ -81,7 +81,7 @@ const Pagination: React.FC<PaginationProps> = ({ users }: PaginationProps) => {
         >
           prev
         </button>
-        <div className="flex md:flex-row">
+        <div className="flex flex-row justify-center">
           {pageNumbers?.map((pageNumber) => {
             if (pageNumber <= maxPageLimit && pageNumber > minPageLimit) {
               return (
