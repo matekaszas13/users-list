@@ -1,4 +1,4 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import App from "../App";
 import { EditUser } from "../components/editUser/EditUser";
 import NewUser from "../components/newUser/NewUser";
