@@ -1,35 +1,36 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { datahandler } from "../../apis/datahandler";
+import { IUser } from "../../globals/models";
 
 interface UserProps {
-  id: number;
-  first_name: string;
-  last_name: string;
-  created_at: string;
-  status: string;
+  user: IUser;
 }
 
 const User: React.FC<UserProps> = ({
-  id,
-  first_name,
-  last_name,
-  created_at,
-  status,
+  user: { id, first_name, last_name, created_at, status },
 }: UserProps) => {
   const navigate = useNavigate();
 
+  const [userStatus, setUserStatus] = useState<string>(status);
+
   async function updateUserStatus(id: number) {
-    const userStatus = status === "locked" ? "active" : "locked";
+    const status = userStatus === "locked" ? "active" : "locked";
     const userStatusUpdate = {
-      status: userStatus,
+      status: status,
     };
-    await datahandler.updateUserStatusByItsId(id, userStatusUpdate);
+    try {
+      await datahandler.updateUserStatusByItsId(id, userStatusUpdate);
+      setUserStatus(status);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
     <div className="m-4 p-3 border-solid border-2 border-sky-500 rounded-md md:w-80 md:h-32">
       <div className="flex flex-row justify-center pb-4">
-        {status === "locked" ? (
+        {userStatus === "locked" ? (
           <h1 className="truncate">
             <s className="flex flex-row ">
               {first_name} {last_name}
@@ -42,8 +43,6 @@ const User: React.FC<UserProps> = ({
           </h1>
         )}
       </div>
-
-      {/* <h1>{status}</h1> */}
       <div className="flex flex-col ">
         <div className="pb-2 flex justify-center">
           <span>{created_at}</span>
@@ -57,7 +56,7 @@ const User: React.FC<UserProps> = ({
           </button>
           <input
             type="checkbox"
-            checked={status === "locked" ? true : false}
+            checked={userStatus === "locked"}
             onChange={() => updateUserStatus(id)}
           />
         </div>

@@ -1,19 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { datahandler } from "../../apis/datahandler";
+import { IUser } from "../../globals/models";
 
 export const EditUser = () => {
   const navigate = useNavigate();
-
-  type User = {
-    id: number;
-    last_name: string;
-    first_name: string;
-    status: string;
-    created_at: string;
-    updated_at: string;
-    url: string;
-  };
 
   type userUpdateDetails = {
     first_name: string;
@@ -22,7 +13,7 @@ export const EditUser = () => {
 
   const params = useParams();
 
-  const [user, setUser] = useState<User>();
+  const [user, setUser] = useState<IUser>();
 
   useEffect(() => {
     const fetchUserById = async () => {
@@ -44,12 +35,16 @@ export const EditUser = () => {
   }
 
   return (
-    <div className="flex m-3 md:justify-center border-4 border-blue-500 rounded md:w-fit md:m-auto p-5">
+    <div className="flex m-2 md:justify-center border-4 border-blue-500 rounded md:w-fit md:m-auto p-5">
       <form action="" onSubmit={(event) => updateUser(event)}>
-      <h1 className="flex justify-center text-blue-800 text-[1.6rem]">Update User</h1>
+        <h1 className="flex justify-center text-blue-800 text-[1.6rem]">
+          Update User
+        </h1>
         <div className="flex md:flex-row flex-col">
           <div className="flex flex-col">
-            <label className="text-blue-800" htmlFor="FirstName">First Name</label>
+            <label className="text-blue-800" htmlFor="FirstName">
+              First Name
+            </label>
             <input
               className="p-3 mr-4 border border-blue-500 rounded"
               required={true}
@@ -60,7 +55,9 @@ export const EditUser = () => {
             />
           </div>
           <div className="flex flex-col">
-            <label className="text-blue-800" htmlFor="LastName">Last Name</label>
+            <label className="text-blue-800" htmlFor="LastName">
+              Last Name
+            </label>
             <input
               className="p-3 mr-4 border border-blue-500 rounded"
               required={true}
