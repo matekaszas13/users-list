@@ -75,7 +75,7 @@ const Pagination: React.FC<PaginationProps> = ({ users }: PaginationProps) => {
       </div>
       <div className="flex justify-between mb-2">
         <button
-          className="pr-2 mt-2 mr-8 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded"
+          className="disabled:opacity-50 pr-2 mt-2 mr-8 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded"
           disabled={currentPage === 1}
           onClick={() => handlePrev()}
         >
@@ -98,7 +98,7 @@ const Pagination: React.FC<PaginationProps> = ({ users }: PaginationProps) => {
         </div>
 
         <button
-          className="mt-2 mr-8 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded"
+          className="disabled:opacity-75 mt-2 mr-8 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-2 border border-blue-500 hover:border-transparent rounded"
           disabled={currentPage === maxNumberOfPages}
           onClick={() => handleNext()}
         >
