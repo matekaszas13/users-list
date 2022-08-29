@@ -21,7 +21,6 @@ const Users = () => {
     getUsers();
   }, []);
 
-  useEffect(() => console.log(isLoading), [users]);
 
   return (
     <div className="max-w-[65%] m-auto ">
